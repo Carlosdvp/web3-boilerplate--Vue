@@ -107,15 +107,13 @@ export default defineComponent({
           :to="{ name: 'Home' }"
           class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
           aria-current="page"
-          >Greeter</router-link
-        >
+        >Greeter</router-link>
 
         <router-link
           :to="{ name: 'Token' }"
           class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
           aria-current="page"
-          >ERC20 Token</router-link
-        >
+        >ERC20 Token</router-link>
       </div>
     </div>
   </nav>
