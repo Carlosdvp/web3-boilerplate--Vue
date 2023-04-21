@@ -2,7 +2,7 @@
 
 import { defineComponent, ref } from 'vue';
 import { Provider, Web3Provider } from 'zksync-web3';
-import { useWalletStore } from '@/stores/wallet';
+import { useWalletStore } from '../stores/wallet';
 
 export default defineComponent({
   async mounted() {
@@ -111,7 +111,7 @@ export default defineComponent({
     </svg>
     <span class="">{{
       walletStore.address != ""
-        ? `Connected Acc ${walletStore.acc_short}`
+        ? `Connected Acc ${walletStore.address}`
         : `Connect Wallet`
     }}</span>
   </button>
