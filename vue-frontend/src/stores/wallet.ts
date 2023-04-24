@@ -10,7 +10,7 @@ interface WalletData {
 export const useWalletStore = defineStore("wallet", {
   state: () => {
     return {
-      address: "",
+      address: " ",
       // short_addr: "",
       provider: {},
       signer: {},
