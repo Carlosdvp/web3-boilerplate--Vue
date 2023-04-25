@@ -3,15 +3,13 @@ import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 
-// load env file
 import dotenv from "dotenv";
 dotenv.config();
 
-// load wallet private key from env file
 const PRIVATE_KEY = process.env.WALLET_PRIVATE_KEY || "";
 
 if (!PRIVATE_KEY)
-  throw "⛔️ Private key not detected! Add it to the .env file!";
+  throw "Private key not detected! Add it to the .env file!";
 
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
@@ -25,11 +23,11 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   const artifact = await deployer.loadArtifact("Greeter");
 
   // Estimate contract deployment fee
-  const greeting = "Hi there!";
+  const greeting = "How you doing";
   const deploymentFee = await deployer.estimateDeployFee(artifact, [greeting]);
 
-  // ⚠️ OPTIONAL: You can skip this block if your account already has funds in L2
-  // Deposit funds to L2
+  // OPTIONAL: Deposit funds to L2
+  // Comment this block if you already have funds on zkSync.
   // const depositHandle = await deployer.zkWallet.deposit({
   //   to: deployer.zkWallet.address,
   //   token: utils.ETH_ADDRESS,
@@ -46,9 +44,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   const greeterContract = await deployer.deploy(artifact, [greeting]);
 
   //obtain the Constructor Arguments
-  console.log(
-    "constructor args:" + greeterContract.interface.encodeDeploy([greeting])
-  );
+  console.log("constructor args:" + greeterContract.interface.encodeDeploy([greeting]));
 
   // Show the contract info.
   const contractAddress = greeterContract.address;

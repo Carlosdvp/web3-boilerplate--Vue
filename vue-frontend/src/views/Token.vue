@@ -85,7 +85,7 @@ const mint = async () => {
   <div class="text-center pt-12 mx-auto max-w-xl">
     <h1 class="text-2xl mb-8">Interact with ERC20 token</h1>
     <div v-if="walletStore.address != ''" class="flex flex-col space-y-4">
-      <p>Your wallet address is: {{ walletStore.acc_short }}</p>
+      <p>Your wallet address is: {{ walletStore.short_addr }}</p>
       <p>Your balance is: {{ balance }}</p>
       <button
         class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"

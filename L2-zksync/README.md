@@ -1,4 +1,7 @@
-# zkSync Hardhat project
+# L2-zksync - Project Backend
+
+
+## zkSync Hardhat project
 
 This project was scaffolded with [zksync-cli](https://github.com/matter-labs/zksync-cli).
 
@@ -41,3 +44,9 @@ If you do not start the zkSync local environment, the tests will fail with error
 - [GitHub](https://github.com/matter-labs)
 - [Twitter](https://twitter.com/zksync)
 - [Discord](https://discord.gg/nMaPGrDDwk)
+
+
+------------------------------------------------------------------------------------------------------------------
+
+# Personal Notes
+

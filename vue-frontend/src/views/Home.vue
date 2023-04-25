@@ -3,9 +3,13 @@
 import { ref } from 'vue';
 import { useWalletStore } from '../stores/wallet';
 import { Contract, Provider, Web3Provider } from 'zksync-web3';
+import * as Artifact from "../../../L2-zksync/artifacts-zk/contracts/Greeter.sol/Greeter.json";
 
 const walletStore = useWalletStore();
 let greet = ref("");
+
+const GREETER_ADDRESS = "0xAf53230113dC96b9A22FF499C53dC1B4A6121640"; // this will need to be changed when I deploy my own contract
+
 const btnUpdate = ref("Update greet");
 const btnRead = ref("Read greet");
 const newGreet = ref("");
