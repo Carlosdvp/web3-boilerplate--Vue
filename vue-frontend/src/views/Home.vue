@@ -7,15 +7,17 @@ import * as Artifact from "../../../L2-zksync/artifacts-zk/contracts/Greeter.sol
 
 const walletStore = useWalletStore();
 let greet = ref("");
+const testnet = "https://zksync2-testnet.zksync.dev";
+const zkSyncLocal = 'http://localhost:3050'
 
-const GREETER_ADDRESS = "0xAf53230113dC96b9A22FF499C53dC1B4A6121640"; // this will need to be changed when I deploy my own contract
+const GREETER_ADDRESS = "0x6E6bc3D438d0f4Fb61c2141c97F008507E7bb183"; // this will need to be changed when I deploy my own contract
 
 const btnUpdate = ref("Update greet");
 const btnRead = ref("Read greet");
 const newGreet = ref("");
 
 const checkGreet = async () => {
-  const provider = new Provider("https://zksync2-testnet.zksync.dev");
+  const provider = new Provider(zkSyncLocal);
   // @ts-ignore
   const greeterContract = new Contract(GREETER_ADDRESS, Artifact.abi, provider);
 

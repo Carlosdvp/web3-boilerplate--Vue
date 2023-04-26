@@ -4,6 +4,9 @@ import { defineComponent, ref } from 'vue';
 import { Provider, Web3Provider } from 'zksync-web3';
 import { useWalletStore } from '../stores/wallet';
 
+const zkSyncTestnet = "https://zksync2-testnet.zksync.dev";
+const zkSyncLocal = "http://localhost:3050";
+
 export default defineComponent({
   async mounted() {
     await this.checkNetwork();
@@ -11,8 +14,10 @@ export default defineComponent({
   computed: {},
   setup() {
     const walletStore = useWalletStore();
-    const targetNetwork = "zkSync Era testnet";
-    const targetNetworkId = "0x118";
+    // const targetNetwork = "zkSync Era testnet";
+    const targetNetwork = import.meta.env.VITE_BLOCKCHAIN_NETWORK_NAME;
+    // const targetNetworkId = "0x118";
+    const targetNetworkId = import.meta.env.VITE_BLOCKCHAIN_NETWORK_ID;
     const network_ok = ref<boolean>(false);
 
     // checks if the current chain matches the target network
@@ -33,7 +38,7 @@ export default defineComponent({
       // @ts-expect-error window.ethereum not typed
       await window.ethereum.request({
         method: "wallet_switchEthereumChain",
-        params: [{ chainId: targetNetwork }],
+        params: [{ chainId: targetNetworkId }],
       });
 
       window.location.reload();
@@ -51,15 +56,10 @@ export default defineComponent({
 
         console.log('data: ', data);
 
-        const provider = new Provider("https://zksync2-testnet.zksync.dev");
+        const provider = new Provider(zkSyncLocal);
         // @ts-ignore
         const signer = new Web3Provider(window.ethereum).getSigner();
-
-        walletStore.saveWalletData({
-          address: data[0],
-          provider,
-          signer,
-        });
+        walletStore.saveWalletData({ address: data[0], provider, signer, short_addr: 'test' });
 
         console.log('Dapp connected to your wallet: ', signer);
 

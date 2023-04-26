@@ -15,7 +15,7 @@ if (!PRIVATE_KEY)
   throw "⛔️ Private key not detected! Add it to the .env file!";
 
 // Address of the contract on zksync testnet
-const CONTRACT_ADDRESS = "";
+const CONTRACT_ADDRESS = "0x6E6bc3D438d0f4Fb61c2141c97F008507E7bb183";
 
 if (!CONTRACT_ADDRESS) throw "⛔️ Contract address not provided";
 

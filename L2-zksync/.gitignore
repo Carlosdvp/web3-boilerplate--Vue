@@ -111,3 +111,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# local test Docker containers
+/volumes
